@@ -37,7 +37,10 @@ public class ejercicio_extra21 {
 
     public static void mostrar(float[][] notas, float[] notas_final){
         for (int i = 0; i < notas[0].length; i++) {
-                System.out.println(notas[0][i] + " " + notas[1][i] + " " +notas[2][i] + " " + notas[3][i] + " "+notas_final[i]);
+                System.out.println("Alumno "+(i+1));
+                System.out.println("Recibida Notas 1:"+notas[0][i] + " Notas 2:" + notas[1][i] + " Notas 3:" +notas[2][i] + " Notas 4:" + notas[3][i]);
+                System.out.println("Porcentaje Notas 1:"+(notas[0][i]*0.1) + " Notas 2:" + (notas[1][i]*0.15) + " Notas 3:" +(notas[2][i]*0.25) + " Notas 4:" + (notas[3][i]*0.5));
+                System.out.println("Nota final:"+notas_final[i]+"\n");
         }
     }
 
