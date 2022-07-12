@@ -1,0 +1,60 @@
+PARA CARGAR LOS DATOS A GITHUB:
+
+1.	git init						//Para inicializar la carpeta local.
+
+2.	git remote add origin <url de github> 	//Para vincular la carpeta de nuestra pc con el repositoriolo remoto.
+
+2.	git remote -v					//Nos da el link de a donde lo vinculamos.
+
+3.	git status						//Para comparar el Remoto con el Local y ver las diferencias
+
+3b.	(Nos aparecen en rojo lo que está en nuestra pc pero no está subido o se modificó)
+
+4.	git add .						//Nos arma el paquete que vamos a mandar a "la nube" de github.
+
+5.	git status						//Nos muestra en verde todo lo que vamos a subir.
+
+6.	git commit -m "nombre o msj que se mostrará en el remoto"	//el msj va entre ""
+
+7.	git push origin master				//Envía todo lo del local al remoto.
+
+8.      Para pushear un archivo individual: 
+	8.1	git status
+	8.2	git add <Nombre.extension>   // ejemplo: git add Prueba.txt
+	8.3	git commit -m "Mensaje"
+	8.4	git push origin master
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+PARA BAJAR DE GITHUB A LA PC LOCAL:
+
+1.	git status						//Para ver todo lo que vamos a enviar desde el paquete.
+
+2.	git clone <url del repositorio a clonar>	//Para clonar TODO el repositorio (no hace falta que estemos vinculados a ese repo)
+Este Clone ademas de copiar todo el Repo, lo inicializa y lo vincula al repo remoto que cloné. Una vez hecho esto, puedo pushear/pullear directamente, ya no lo tengo que inicializar.
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+SI MODIFICAMOS EL LOCAL y QUEREMOS QUE EL REMOTO SE ACTUALICE:
+
+1.	git add .
+
+2.	git commit -m "nombre o msj que se mostrará"
+
+3.	git push origin master
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+SI MODIFICAMOS EL REMOTO y QUEREMOS QUE EL LOCAL SE ACTUALICE:
+
+
+1.	git pull origin master		//Traés todos los cambios
+2.	PULL INDIVIDUAL?? 
+
