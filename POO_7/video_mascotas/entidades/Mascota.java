@@ -1,4 +1,4 @@
-package POO_7.app_tinder_de_mascotas;
+package POO_7.video_mascotas.entidades;
 
 public class Mascota {
     // atributos
@@ -9,6 +9,7 @@ public class Mascota {
     private int edad;
     private boolean cola;
     private String raza;
+    private int energia;
 
     // setters y getters
     public String getNombre() {
@@ -53,17 +54,26 @@ public class Mascota {
     public void setRaza(String raza) {
         this.raza = raza;
     }
+    public int getEnergia(int energia) {
+        return this.energia;
+    }
+    public void setEnergia(int energia) {
+        this.energia = energia;
+    }
 
     // constructores
-    public Mascota(){}
+    public Mascota(){
+        energia = 1000;
+    }
 
     public Mascota(String nombre, String apodo, String tipo){
         this.nombre = nombre;
         this.apodo = apodo;
         this.tipo = tipo;
+        energia = 1000;
     }
     
-    public Mascota(String nombre, String apodo, String tipo, String color, int edad, boolean cola, String raza){
+    public Mascota(String nombre, String apodo, String tipo, String color, int edad, boolean cola, String raza, int energia){
         this.nombre = nombre;
         this.apodo = apodo;
         this.tipo = tipo;
@@ -71,12 +81,36 @@ public class Mascota {
         this.edad = edad;
         this.cola = cola;
         this.raza = raza;
+        this.energia = 1000;
     }
 
     // to string
     public String toString(){
-        return "Nombre: "+this.nombre+"\nApodo: "+this.apodo+"\nTipo: "+this.tipo+"\nColor: "+this.color+"\nEdad: "+this.edad+"\nCola: "+this.cola+"\nRaza: "+this.raza;
+        return "Nombre: "+this.nombre+"\nApodo: "+this.apodo+"\nTipo: "+this.tipo+"\nColor: "+this.color+"\nEdad: "+this.edad+"\nCola: "+this.cola+"\nRaza: "+this.raza+"\nEnergia: "+this.energia;
     }
 
+    //metodos
+    /**
+     * Funcion para pasear a la mascota
+     * @param energiaRestar
+     * @return energia
+     */
+    public int pasear(int energiaRestar){
+        energia -= energiaRestar;        
+        return energia;
+    }
+
+    /**
+     * Funcion para pasear a la mascota una cantidad igual de vueltas
+     * @param energiaRestar
+     * @param vueltas
+     * @return energia
+     */
+    public int pasear(int energiaRestar, int vueltas){
+        for (int i=0; i<vueltas; i++){
+            energia -= energiaRestar;        
+        }
+        return energia;
+    }
     
 }
