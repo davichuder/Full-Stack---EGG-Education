@@ -26,6 +26,7 @@ public class PersonaServicio {
         fechaNacimiento = new Date(anio-1900, mes-1, dia);
         //Creo persona
         Persona persona = new Persona(nombre, fechaNacimiento);
+        scanner.close();
         return persona;
     }    
 }

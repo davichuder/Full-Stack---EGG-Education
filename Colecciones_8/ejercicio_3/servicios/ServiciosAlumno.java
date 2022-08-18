@@ -10,41 +10,37 @@ public class ServiciosAlumno {
     private ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
 
     public void crearAlumno(){
-        while (true){
+        String respuesta;
+        do {
             System.out.println("Ingrese el nombre del alumno: ");
-            String nombre = scanner.nextLine();
+            String nombre = scanner.next();
             System.out.println("Ingrese las notas del alumno: ");
             Integer[] notas = new Integer[3];
             for (int i = 0; i < notas.length; i++) {
+                System.out.println("Ingrese la nota " + (i + 1) + ": ");
                 notas[i] = scanner.nextInt();
             }
             alumnos.add(new Alumno(nombre, notas));
-
+            
+            do {
             System.out.println("Desea ingresar otro alumno? (s/n)");
-            String respuesta = scanner.nextLine();
-            if (respuesta.equals("n"))
+            respuesta = scanner.next();
+            if (respuesta.equals("n") || respuesta.equals("s"))
                 break;
-            else if (respuesta.equals("s"))
-                continue;
             else
                 System.out.println("Introduce una respuesta valida");
-        }
+            } while (true);
+        } while (respuesta.equals("s"));
     }
 
     public void notaFinal(){
         System.out.println("Ingrese el nombre del alumno para la nota final: ");
-        String nombre = scanner.nextLine();
-        Alumno alumnoFinal;
+        String nombre = scanner.next();
         for (Alumno alumno : alumnos) {
             if (alumno.getNombre().equals(nombre)){
-                alumnoFinal = alumno;
+                System.out.println("La nota final del alumno es: " + calcularNotaFinal(alumno));
                 break;
             }
-        }
-        if (alumnoFinal == null){
-            System.out.println("La nota final del alumno es: " + calcularNotaFinal(alumnoFinal));
-        } else {
-            System.out.println("El alumno no existe");
         }
     }
 

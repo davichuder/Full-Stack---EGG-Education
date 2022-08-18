@@ -15,20 +15,21 @@ public class app {
         // salir.
         // Si decide salir, se mostrará todos los perros guardados en el ArrayList.
         ArrayList<String> perros = new ArrayList<String>();
-
-        while (true) {
-            System.out.println("Introduce una raza de perro: ");
+        String respuesta;
+        do {
+            System.out.println("Introduce una raza de perro:");
             String raza = scanner.nextLine();
             perros.add(raza);
-            System.out.println("¿Quieres añadir otro perro? (s/n)");
-            String respuesta = scanner.nextLine();
-            if (respuesta.equals("n"))
-                break;
-            else if (respuesta.equals("s"))
-                continue;
-            else
-                System.out.println("Introduce una respuesta valida");
-        }
+            while (true) {
+                System.out.println("¿Quieres añadir otro perro? (s/n)");
+                respuesta = scanner.nextLine();
+                if (respuesta.equals("n") || respuesta.equals("s")) {
+                    break;
+                } else {
+                    System.out.println("Introduce una respuesta valida");
+                }
+            }
+        } while (!respuesta.equals("n"));
 
         for (String perro : perros) {
             System.out.println(perro);
@@ -42,7 +43,7 @@ public class app {
         // Si el perro no se encuentra en la lista, se le informará al usuario y se
         // mostrará la lista ordenada.
         Iterator<String> it = perros.iterator();
-        System.out.println("Introduce una raza de perro: ");
+        System.out.println("Introduce una raza de perro para eliminar: ");
         String raza = scanner.nextLine();
         scanner.close();
         Boolean encontrado = false;
@@ -62,5 +63,7 @@ public class app {
         for (String perro : perros) {
             System.out.println(perro);
         }
+
+        scanner.close();
     }
 }

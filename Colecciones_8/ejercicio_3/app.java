@@ -20,5 +20,4 @@ public class app {
         serviciosAlumno.crearAlumno();
         serviciosAlumno.notaFinal();
     }
-    
 }

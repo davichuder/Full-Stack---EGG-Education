@@ -23,4 +23,7 @@ public class Alumno {
         this.nombre = nombre;
         this.notas = notas;
     }
+
+    public Alumno() {
+    }
 }
