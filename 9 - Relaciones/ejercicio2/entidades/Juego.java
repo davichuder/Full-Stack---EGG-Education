@@ -56,4 +56,12 @@ public class Juego {
             }
         } while (!mojado);
     }
+
+    // Muestro jugadores
+    public void mostrarJugadores() {
+        for (Jugador jugador : jugadores) {
+            System.out.println(jugador);
+        }
+    }
+
 }

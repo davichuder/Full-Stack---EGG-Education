@@ -11,8 +11,6 @@ public class Revolver {
     private int posicionAgua;
 
     public Revolver() {
-        this.posicionActual = (int) (Math.random() * (CANTIDAD_POSICIONES - 1));
-        this.posicionAgua = (int) (Math.random() * (CANTIDAD_POSICIONES - 1));
     }
 
     public int getPosicionActual() {

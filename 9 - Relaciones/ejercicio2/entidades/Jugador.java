@@ -56,11 +56,21 @@ public class Jugador {
     // revolver tira el agua, el jugador se moja. El atributo mojado pasa a false y
     // el método devuelve true, sino false.
     public boolean disparo(Revolver revolver) {
+        System.out.println("Jugador " + this.nombre + " disparando");
         if (revolver.mojar()) {
             this.mojado = true;
             return true;
         }
         revolver.siguienteChorro();
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                " id='" + getId() + "'" +
+                ", nombre='" + getNombre() + "'" +
+                ", mojado='" + isMojado() + "'" +
+                "}";
     }
 }

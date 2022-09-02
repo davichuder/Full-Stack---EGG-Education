@@ -40,11 +40,19 @@ import ejercicio2.entidades.Juego;
 public class app {
 
     public static void main(String[] args) {
-        Creador creador = new Creador();
-        Juego juego = creador.crearJuego();
-        juego.llenarJuego(creador.crearJugadores(), creador.crearRevolver());
-        System.out.println(juego.getRevolver());
+        Juego juego = Creador.crearJuego();
+        juego.llenarJuego(Creador.crearJugadores(), Creador.crearRevolver());
+        juego.getRevolver().llenarRevolver();
+
+        System.out.println("Mostrando jugadores al iniciar");
+        juego.mostrarJugadores();
+
+        System.out.println("\nPosicion inicial del revolver " + juego.getRevolver());
+
         juego.ronda();
+
+        System.out.println("\nMostrando jugadores al finalizar");
+        juego.mostrarJugadores();
     }
 
 }

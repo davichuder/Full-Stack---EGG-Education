@@ -10,21 +10,22 @@ public class Creador {
     private static final int JUGADORES_MAXIMOS = 3;
 
     // Crear lista de jugadores
-    public ArrayList<Jugador> crearJugadores() {
+    public static ArrayList<Jugador> crearJugadores() {
         ArrayList<Jugador> listaJugadores = new ArrayList<Jugador>();
         for (int i = 1; i < JUGADORES_MAXIMOS + 1; i++) {
             listaJugadores.add(new Jugador(i));
         }
+        System.out.println("Se crearon " + JUGADORES_MAXIMOS + " jugadores");
         return listaJugadores;
     }
 
     // Crear revolver
-    public Revolver crearRevolver() {
+    public static Revolver crearRevolver() {
         return new Revolver();
     }
 
     // Crear juego
-    public Juego crearJuego() {
+    public static Juego crearJuego() {
         return new Juego();
     }
 }
