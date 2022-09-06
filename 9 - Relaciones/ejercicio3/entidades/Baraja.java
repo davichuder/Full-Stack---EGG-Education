@@ -74,10 +74,10 @@ public class Baraja {
     // esa primera carta.
     public void mostrarCartas() {
         if (this.mazo.size() == 0) {
-            System.out.println("No hay cartas repartidas");
+            System.out.println("No hay cartas en el mazo");
             return;
         }
-        System.out.println("Las cartas repartidas fueron:");
+        System.out.println("Las cartas en el mazo eran:");
         for (Carta carta_aux : this.mazo) {
             System.out.println(carta_aux);
         }

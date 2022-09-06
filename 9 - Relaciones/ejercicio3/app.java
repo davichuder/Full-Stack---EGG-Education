@@ -41,6 +41,5 @@ public class app {
         baraja.cartasMonton();
 
         baraja.mostrarCartas();
-
     }
 }
