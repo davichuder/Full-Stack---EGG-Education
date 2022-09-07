@@ -1,4 +1,7 @@
+// clase Persona con atributos: nombre, apellido, edad, documento y Perro.
 package ejercicio1extra.entidades;
+
+import java.util.ArrayList;
 
 public class Persona {
     // Atributos
@@ -6,15 +9,11 @@ public class Persona {
     public String apellido;
     private int edad;
     private int documento;
-    private Perro perro;
+    private ArrayList<Perro> perros;
 
     // Constructor
-    public Persona(String nombre, String apellido, int edad, int documento, Perro perro) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
-        this.documento = documento;
-        this.perro = perro;
+    public Persona() {
+
     }
 
     public Persona(String nombre, String apellido, int edad, int documento) {
@@ -22,9 +21,7 @@ public class Persona {
         this.apellido = apellido;
         this.edad = edad;
         this.documento = documento;
-    }
-
-    public Persona() {
+        this.perros = new ArrayList<Perro>();
     }
 
     // Getters and setters
@@ -60,24 +57,20 @@ public class Persona {
         this.documento = documento;
     }
 
-    public Perro getPerro() {
-        return this.perro;
+    public ArrayList<Perro> getPerros() {
+        return this.perros;
     }
 
-    public void setPerro(Perro perro) {
-        this.perro = perro;
+    public void setPerros(ArrayList<Perro> perros) {
+        this.perros = perros;
     }
 
     // toString
     @Override
     public String toString() {
-        return "{" +
-                " nombre='" + getNombre() + "'" +
-                ", apellido='" + getApellido() + "'" +
-                ", edad='" + getEdad() + "'" +
-                ", documento='" + getDocumento() + "'" +
-                ", perro='" + getPerro() + "'" +
-                "}";
+        return "nombre=" + getNombre() + ", apellido=" + getApellido() + ", edad='" + getEdad() + ", documento='"
+                + getDocumento() +
+                ",\n\tperros='" + getPerros();
     }
 
 }

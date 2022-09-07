@@ -12,32 +12,18 @@
 // persona.  
 // Una vez que la Persona elige el Perro se le asigna, al final deberemos mostrar todas las 
 // personas con sus respectivos perros.
-// FALTA HACER
 package ejercicio1extra;
 
 import java.util.ArrayList;
 
-import ejercicio1.entidades.Perro;
-import ejercicio1.entidades.Persona;
-import ejercicio1.servicios.Creador;
+import ejercicio1extra.entidades.Perro;
+import ejercicio1extra.entidades.Persona;
+import ejercicio1extra.servicios.Menu;
 
 public class app {
-    final static int CANTIDAD_DE_PERSONAS = 1;
-    final static int CANTIDAD_DE_PERROS = 1;
-
     public static void main(String[] args) {
-        Creador creador = new Creador();
-        ArrayList<Persona> personas = new ArrayList<>();
-        ArrayList<Perro> perros = new ArrayList<>();
-
-        for (int i = 0; i < CANTIDAD_DE_PERSONAS; i++) {
-            personas.add(creador.crearPersona());
-            perros.add(creador.crearPerro());
-            personas.get(i).setPerro(perros.get(i));
-        }
-
-        for (Persona p : personas) {
-            System.out.println(p);
-        }
+        ArrayList<Persona> personas = new ArrayList<Persona>();
+        ArrayList<Perro> perros = new ArrayList<Perro>();
+        Menu.menu(personas, perros);
     }
 }
