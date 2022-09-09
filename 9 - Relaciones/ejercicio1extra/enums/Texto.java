@@ -22,7 +22,6 @@ public enum Texto {
             ADOPTARPERRO_7 + "\n" +
             DEVOLVERPERRO_8 + "\n" +
             SALIR_0),
-
     INGRESENOMBRE("Ingrese nombre"),
     INGRESEAPELLIDO("Ingrese apellido"),
     INGRESEEDAD("Ingrese edad"),

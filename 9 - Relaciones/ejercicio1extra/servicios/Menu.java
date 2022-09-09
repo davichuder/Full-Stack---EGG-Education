@@ -95,27 +95,11 @@ public class Menu {
     }
 
     private static void agregarPerro(ArrayList<Perro> perros) {
-        System.out.println(Texto.INGRESENOMBRE);
-        String nombre = scanner.nextLine();
-        System.out.println(Texto.INGRESEEDAD);
-        int edad = Integer.parseInt(scanner.nextLine());
-        System.out.println(Texto.INGRESETAMAÑO);
-        float tamaño = Float.parseFloat(scanner.nextLine());
-        System.out.println(Texto.INGRESERAZA);
-        Raza raza = Seleccion.seleccionarRaza();
-        perros.add(new Perro(nombre, raza, edad, tamaño));
+        perros.add(Creador.crearPerro());
     }
 
     private static void agregarPersona(ArrayList<Persona> personas) {
-        System.out.println(Texto.INGRESENOMBRE);
-        String nombre = scanner.nextLine();
-        System.out.println(Texto.INGRESEAPELLIDO);
-        String apellido = scanner.nextLine();
-        System.out.println(Texto.INGRESEEDAD);
-        int edad = Integer.parseInt(scanner.nextLine());
-        System.out.println(Texto.INGRESEDOCUMENTO);
-        int documento = Integer.parseInt(scanner.nextLine());
-        personas.add(new Persona(nombre, apellido, edad, documento));
+        personas.add(Creador.crearPersona());
     }
 
     private static void mostrarPerros(ArrayList<Perro> perros) {

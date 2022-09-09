@@ -2,35 +2,35 @@ package ejercicio1extra.servicios;
 
 import java.util.Scanner;
 
-import ejercicio1.entidades.Perro;
-import ejercicio1.entidades.Persona;
+import ejercicio1extra.entidades.Perro;
+import ejercicio1extra.entidades.Persona;
+import ejercicio1extra.enums.Raza;
+import ejercicio1extra.enums.Texto;
 
 public class Creador {
-    private Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
-    public Persona crearPersona() {
-        System.out.println("Ingrese datos de la persona");
-        System.out.println("Ingrese nombre");
+    public static Persona crearPersona() {
+        System.out.println(Texto.INGRESENOMBRE);
         String nombre = scanner.nextLine();
-        System.out.println("Ingrese apellido");
+        System.out.println(Texto.INGRESEAPELLIDO);
         String apellido = scanner.nextLine();
-        System.out.println("Ingrese edad");
+        System.out.println(Texto.INGRESEEDAD);
         int edad = Integer.parseInt(scanner.nextLine());
-        System.out.println("Ingrese documento");
+        System.out.println(Texto.INGRESEDOCUMENTO);
         int documento = Integer.parseInt(scanner.nextLine());
         return new Persona(nombre, apellido, edad, documento);
     }
 
-    public Perro crearPerro() {
-        System.out.println("Ingrese datos del perro");
-        System.out.println("Ingrese nombre");
+    public static Perro crearPerro() {
+        System.out.println(Texto.INGRESENOMBRE);
         String nombre = scanner.nextLine();
-        System.out.println("Ingrese raza");
-        String raza = scanner.nextLine();
-        System.out.println("Ingrese edad");
+        System.out.println(Texto.INGRESEEDAD);
         int edad = Integer.parseInt(scanner.nextLine());
-        System.out.println("Ingrese tamaño");
+        System.out.println(Texto.INGRESETAMAÑO);
         float tamaño = Float.parseFloat(scanner.nextLine());
+        System.out.println(Texto.INGRESERAZA);
+        Raza raza = Seleccion.seleccionarRaza();
         return new Perro(nombre, raza, edad, tamaño);
     }
 
