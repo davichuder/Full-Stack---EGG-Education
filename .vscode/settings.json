@@ -1,8 +1,9 @@
 {
     "java.project.sourcePaths": [
+        "9 - Relaciones",
         "8 - Colecciones",
         "7 - POO",
         "6 - Java",
-        "9 - Relaciones"
+        "10 - Herencia"
     ]
 }

@@ -11,7 +11,7 @@ public enum MenuVehiculos {
     EDITARVEHICULOS("2 - Editar vehiculos"),
     ELIMINARVEHICULOS("3 - Eliminar vehiculos"),
     MOSTRARVEHICULOS("4 - Mostrar vehiculos"),
-    MENU("\033[H\033[2J" + "\tMENU VEHICULOS" +
+    MENU("\033[H\033[2J" + "\tMENU VEHICULOS\n" +
             VOLVER + "\n" +
             CARGARVEHICULOS + "\n" +
             EDITARVEHICULOS + "\n" +

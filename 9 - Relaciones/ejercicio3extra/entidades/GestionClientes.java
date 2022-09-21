@@ -25,6 +25,7 @@ public class GestionClientes {
                 break;
             case 4:
                 mostrarClientes();
+                break;
             default:
                 System.out.println("Ingrese una opcion valida");
         }

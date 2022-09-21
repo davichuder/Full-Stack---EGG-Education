@@ -3,23 +3,27 @@
 // etc.).  
 package ejercicio3extra.entidades;
 
-import java.util.Calendar;
-
-import ejercicio3extra.enums.FormaPago;
-
 public class Cuota {
     private int numero_cuota;
     private int monto_total;
     private int pagado;
-    private Calendar fecha_vencimiento;
-    private FormaPago forma_pago;
+    private String fecha_vencimiento;
+    private String forma_pago;
 
-    public Cuota(int numero_cuota, int monto_total, int pagado, Calendar fecha_vencimiento, FormaPago forma_pago) {
+    public Cuota(int numero_cuota, int monto_total, int pagado, String fecha_vencimiento, String forma_pago) {
         this.numero_cuota = numero_cuota;
         this.monto_total = monto_total;
         this.pagado = pagado;
         this.fecha_vencimiento = fecha_vencimiento;
         this.forma_pago = forma_pago;
+    }
+
+    public Cuota(int numero_cuota, int monto_total, String fecha_vencimiento) {
+        this.numero_cuota = numero_cuota;
+        this.monto_total = monto_total;
+        this.pagado = 0;
+        this.fecha_vencimiento = fecha_vencimiento;
+        this.forma_pago = "";
     }
 
     public int getNumero_cuota() {
@@ -46,19 +50,19 @@ public class Cuota {
         this.pagado = pagado;
     }
 
-    public Calendar getFecha_vencimiento() {
+    public String getFecha_vencimiento() {
         return this.fecha_vencimiento;
     }
 
-    public void setFecha_vencimiento(Calendar fecha_vencimiento) {
+    public void setFecha_vencimiento(String fecha_vencimiento) {
         this.fecha_vencimiento = fecha_vencimiento;
     }
 
-    public FormaPago getForma_pago() {
+    public String getForma_pago() {
         return this.forma_pago;
     }
 
-    public void setForma_pago(FormaPago forma_pago) {
+    public void setForma_pago(String forma_pago) {
         this.forma_pago = forma_pago;
     }
 

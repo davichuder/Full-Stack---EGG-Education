@@ -14,14 +14,14 @@
 // asegurado, incluye granizo, monto máximo granizo, tipo de cobertura (total, contra 
 // terceros, etc.). Nota: prestar atención al principio de este enunciado y pensar en las 
 // relaciones entre clases. Recuerden que pueden ser de uno a uno, de uno a muchos, de 
-// muchos a uno o de muchos a muchos.  
+// muchos a uno o de muchos a muchos.
 // d. Gestión de cuotas: Se registrarán y podrán consultar las cuotas generadas en cada póliza. 
 // Esas cuotas van a contener la siguiente información: número de cuota, monto total de la 
 // cuota, si está o no pagada, fecha de vencimiento, forma de pago (efectivo, transferencia, 
-// etc.).  
+// etc.).
 // Debemos realizar el diagrama de clases completo, teniendo en cuenta todos los 
 // requerimientos arriba descriptos. Modelando clases con atributos y sus correspondientes 
-// relaciones. 
+// relaciones.
 package ejercicio3extra;
 
 import ejercicio3extra.entidades.Database;

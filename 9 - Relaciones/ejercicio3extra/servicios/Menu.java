@@ -2,8 +2,12 @@ package ejercicio3extra.servicios;
 
 import ejercicio3extra.entidades.Database;
 import ejercicio3extra.entidades.GestionClientes;
+import ejercicio3extra.entidades.GestionCuotas;
+import ejercicio3extra.entidades.GestionPolizas;
 import ejercicio3extra.entidades.GestionVehiculos;
 import ejercicio3extra.enums.MenuClientes;
+import ejercicio3extra.enums.MenuCuotas;
+import ejercicio3extra.enums.MenuPolizas;
 import ejercicio3extra.enums.MenuVehiculos;
 import ejercicio3extra.enums.MenuPrincipal;
 
@@ -20,10 +24,10 @@ public class Menu {
                     seleccionarGestionVehiculos(db);
                     break;
                 case 3:
-                    seleccionarGestionPolizas();
+                    seleccionarGestionPolizas(db);
                     break;
                 case 4:
-                    seleccionarGestionCuotas();
+                    seleccionarGestionCuotas(db);
                     break;
             }
         }
@@ -39,11 +43,13 @@ public class Menu {
             ;
     }
 
-    public static void seleccionarGestionPolizas() {
-        System.out.println("TextoMenu.3");
+    public static void seleccionarGestionPolizas(Database db) {
+        while (GestionPolizas.opcion(db, MenuPolizas.MENU.seleccion()))
+            ;
     }
 
-    public static void seleccionarGestionCuotas() {
-        System.out.println("TextoMenu.4");
+    public static void seleccionarGestionCuotas(Database db) {
+        while (GestionCuotas.opcion(db, MenuCuotas.MENU.seleccion()))
+            ;
     }
 }

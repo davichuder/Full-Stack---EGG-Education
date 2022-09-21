@@ -17,13 +17,14 @@ public class GestionVehiculos {
                 agregarVehiculo();
                 break;
             case 2:
-                // modificarVehiculo();
+                modificarVehiculo();
                 break;
             case 3:
-                // eliminarVehiculo();
+                eliminarVehiculo();
                 break;
             case 4:
                 mostrarVehiculos();
+                break;
             default:
                 System.out.println("Ingrese una opcion valida");
         }
@@ -65,31 +66,30 @@ public class GestionVehiculos {
         Utilidades.presionarEnter();
     }
 
-    // private static void modificarVehiculo() {
-    // int numero_motor =
-    // Utilidades.ingresarInt(MenuVehiculos.INGRESENUMEROMOTOR.toString());
-    // int numero_chasis =
-    // Utilidades.ingresarInt(MenuVehiculos.INGRESENUMEROCHASIS.toString());
-    // int posicion = verificarVehiculo(numero_motor, numero_chasis);
-    // if (posicion == -1) {
-    // System.out.println("El vehiculoe no existe");
-    // Utilidades.presionarEnter();
-    // } else {
-    // Vehiculo cliente = database.getVehiculos().get(posicion);
-    // cliente.setDocumento(Utilidades.ingresarInt(MenuVehiculos..toString()));
-    // cliente.setNombre(Utilidades.ingresarString(MenuVehiculos..toString()));
-    // cliente.setApellido(Utilidades.ingresarString(MenuVehiculos..toString()));
-    // cliente.setDomicilio(Utilidades.ingresarString(MenuVehiculos..toString()));
-    // cliente.setEmail(Utilidades.ingresarString(MenuVehiculos..toString()));
-    // cliente.setTelefono(Utilidades.ingresarString(MenuVehiculos..toString()));
-    // }
-    // }
+    private static void modificarVehiculo() {
+        int numero_motor = Utilidades.ingresarInt(MenuVehiculos.INGRESENUMEROMOTOR.toString());
+        int numero_chasis = Utilidades.ingresarInt(MenuVehiculos.INGRESENUMEROCHASIS.toString());
+        int posicion = verificarVehiculo(numero_motor, numero_chasis);
+        if (posicion == -1) {
+            System.out.println("El vehiculo no existe");
+            Utilidades.presionarEnter();
+        } else {
+            Vehiculo vehiculo = database.getVehiculos().get(posicion);
+            vehiculo.setNumero_motor(Utilidades.ingresarInt(MenuVehiculos.INGRESENUMEROMOTOR.toString()));
+            vehiculo.setNumero_chasis(Utilidades.ingresarInt(MenuVehiculos.INGRESENUMEROCHASIS.toString()));
+            vehiculo.setAño(Utilidades.ingresarInt(MenuVehiculos.INGRESEAÑO.toString()));
+            vehiculo.setColor(Utilidades.ingresarString(MenuVehiculos.INGRESECOLOR.toString()));
+            vehiculo.setMarca(Utilidades.ingresarString(MenuVehiculos.INGRESEMARCA.toString()));
+            vehiculo.setModelo(Utilidades.ingresarString(MenuVehiculos.INGRESEMODELO.toString()));
+            vehiculo.setTipo(Utilidades.ingresarString(MenuVehiculos.INGRESETIPO.toString()));
+        }
+    }
 
-    // private static void eliminarVehiculo() {
-    // int documento =
-    // Utilidades.ingresarInt(MenuVehiculos.INGRESEDOCUMENTO.toString());
-    // if (!database.getVehiculos().removeIf(x -> x.getDocumento() == documento))
-    // System.out.println("El cliente no existe");
-    // }
-
+    private static void eliminarVehiculo() {
+        int numero_motor = Utilidades.ingresarInt(MenuVehiculos.INGRESENUMEROMOTOR.toString());
+        int numero_chasis = Utilidades.ingresarInt(MenuVehiculos.INGRESENUMEROCHASIS.toString());
+        if (!database.getVehiculos()
+                .removeIf(x -> (x.getNumero_motor() == numero_motor && x.getNumero_chasis() == numero_chasis)))
+            System.out.println("El cliente no existe");
+    }
 }
