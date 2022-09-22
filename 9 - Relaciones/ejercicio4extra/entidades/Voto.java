@@ -16,6 +16,11 @@ public class Voto {
         this.votos = votos;
     }
 
+    public Voto(Alumno alumno) {
+        this.alumno = alumno;
+        this.votos = new ArrayList<Alumno>();
+    }
+
     public Alumno getAlumno() {
         return this.alumno;
     }
@@ -38,5 +43,9 @@ public class Voto {
                 " alumno='" + getAlumno() + "'" +
                 ", votos='" + getVotos() + "'" +
                 "}";
+    }
+
+    public void agregarVoto(Alumno alumno) {
+        this.votos.add(alumno);
     }
 }

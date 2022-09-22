@@ -1,6 +1,7 @@
 package ejercicio4extra.entidades;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Random;
 
@@ -14,7 +15,8 @@ public class Simulador {
     // los apellidos.
 
     public ArrayList<String> generarNombres(int cantidad_alumnos) {
-        String[] nombres = { "Santiago", "Sebastián", "Diego", "Nicolás", "Samuel", "Alejandro", "Daniel", "Mateo",
+        final String[] nombres = { "Santiago", "Sebastián", "Diego", "Nicolás", "Samuel", "Alejandro", "Daniel",
+                "Mateo",
                 "Ángel", "Matías", "Gabriel", "Tomás", "David", "Emiliano", "Andrés", "Joaquín", "Carlos", "Alexander",
                 "Adrián", "Lucas", "Benjamín", "Leonardo", "Rodrigo", "Felipe", "Francisco", "Pablo", "Martín",
                 "Fernando", "Isaac", "Manuel", "Juan Pablo", "Emmanuel", "Emilio", "Vicente", "Eduardo", "Juan",
@@ -27,7 +29,8 @@ public class Simulador {
                 "Gonzalo", "Roberto", "Valentino", "Facundo", "Patricio", "Diego Alejandro", "Josué", "Franco"
         };
 
-        String[] apellidos = { "García", "González", "Rodríguez", "Fernández", "López", "Martínez", "Sánchez", "Pérez",
+        final String[] apellidos = { "García", "González", "Rodríguez", "Fernández", "López", "Martínez", "Sánchez",
+                "Pérez",
                 "Gómez", "Martin", "Jiménez", "Ruiz", "Hernández", "Diaz", "Moreno", "Muñoz", "Álvarez", "Romero",
                 "Alonso", "Gutiérrez", "Navarro", "Torres", "Domínguez", "Vázquez", "Ramos", "Gil", "Ramírez",
                 "Serrano", "Blanco", "Molina", "Morales", "Suarez", "Ortega", "Delgado", "Castro", "Ortiz", "Rubio",
@@ -56,9 +59,9 @@ public class Simulador {
     // rango real de números de documentos. Y agregar a los alumnos su DNI. Este
     // método
     // debe retornar la lista de dnis.
-    public ArrayList<Integer> generarDocumento(int cantidad_documentos) {
+    public ArrayList<Integer> generarDocumentos(int cantidad_documentos) {
         HashSet<Integer> documentos = new HashSet<Integer>();
-        while (documentos.size() < cantidad_documentos - 1) {
+        while (documentos.size() < cantidad_documentos) {
             documentos.add(random.nextInt(99999999));
         }
         return new ArrayList<Integer>(documentos);
@@ -84,23 +87,73 @@ public class Simulador {
     // • Se debe imprimir por pantalla el listado de alumnos.
     public void mostrarAlumnos(ArrayList<Alumno> alumnos) {
         alumnos.forEach(System.out::println);
+        System.out.println();
     }
 
     // Crearemos un método votación en la clase Simulador que, recibe el listado de
-    // alumnos y
-    // para cada alumno genera tres votos de manera aleatoria.
-    // En este método debemos
-    // guardar a el alumno que vota, a los alumnos a los que votó y sumarle uno a la
-    // cantidad de
-    // votos a cada alumno que reciba un voto, que es un atributo de la clase
-    // Alumno.
+    // alumnos y para cada alumno genera tres votos de manera aleatoria.
+    // En este método debemosguardar a el alumno que vota, a los alumnos a los que
+    // votó y sumarle uno a la cantidad de votos a cada alumno que reciba un voto,
+    // que es un atributo de la clase Alumno.
     // Tener en cuenta que un alumno no puede votarse a sí mismo o votar más de una
-    // vez al
-    // mismo alumno. Utilizar un hashset para resolver esto.
-    public void votacion(ArrayList<Alumno> alumnos) {
-        HashSet<Integer> posicion_auxiliar = new HashSet<>();
-        for (int i = 0; i < alumnos.size(); i++) {
+    // vez al mismo alumno. Utilizar un hashset para resolver esto.
+    public ArrayList<Voto> votacion(ArrayList<Alumno> alumnos) {
+        ArrayList<Voto> votos = new ArrayList<Voto>();
+        HashSet<Integer> posicion_auxiliar = new HashSet<Integer>();
+        int aleatorio;
 
+        for (int i = 0; i < alumnos.size(); i++) {
+            votos.add(new Voto(alumnos.get(i)));
+            do {
+                aleatorio = random.nextInt(alumnos.size());
+                if (aleatorio != i && posicion_auxiliar.add(aleatorio)) {
+                    alumnos.get(aleatorio).aumentarVoto();
+                    votos.get(i).agregarVoto(alumnos.get(aleatorio));
+                }
+            } while (posicion_auxiliar.size() < 3);
+            posicion_auxiliar.clear();
         }
+        return votos;
+    }
+
+    // Se debe crear un método que muestre a cada Alumno con su cantidad de votos y
+    // cuales fueron sus 3 votos.
+    public void mostrarVotos(ArrayList<Alumno> alumnos, ArrayList<Voto> votos) {
+        for (int i = 0; i < alumnos.size(); i++) {
+            System.out.println("El alumno " + alumnos.get(i).getNombre_completo()
+                    + " tiene " + alumnos.get(i).getCantidad_votos()
+                    + " votos, y voto a: " + votos.get(i).getVotos().get(0).getNombre_completo() + ", "
+                    + votos.get(i).getVotos().get(1).getNombre_completo() + ", "
+                    + votos.get(i).getVotos().get(2).getNombre_completo());
+        }
+        System.out.println();
+    }
+
+    // • Se debe crear un método que haga el recuento de votos, este recibe la lista
+    // de Alumnos y comienza a hacer el recuento de votos.
+    // • Se deben crear 5 facilitadores con los 5 primeros alumnos votados y se
+    // deben crear 5
+    // facilitadores suplentes con los 5 segundos alumnos más votados. A
+    // continuación, mostrar
+    // los 5 facilitadores y los 5 facilitadores suplentes.
+    public void recuentoVotos(ArrayList<Alumno> alumnos) {
+        int total = 0;
+        Collections.sort(alumnos, (c1, c2) -> c2.getCantidad_votos().compareTo(c1.getCantidad_votos()));
+
+        for (Alumno alumno : alumnos) {
+            total = total + alumno.getCantidad_votos();
+            System.out.println(alumno.getNombre_completo() + " tuvo " + alumno.getCantidad_votos() + " votos");
+        }
+        System.out.println("La cantidad de votos totales fueron " + total);
+
+        System.out.println("\nLos falicitadores seran:");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(alumnos.get(i).getNombre_completo());
+        }
+        System.out.println("\nLos falicitadores suplentes seran:");
+        for (int i = 5; i < 10; i++) {
+            System.out.println(alumnos.get(i).getNombre_completo());
+        }
+        System.out.println();
     }
 }

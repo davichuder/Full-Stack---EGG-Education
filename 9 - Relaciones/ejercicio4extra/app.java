@@ -2,7 +2,7 @@
 // El sistema de votación de Egg tiene una clase llamada Alumno con los siguientes atributos: 
 // nombre completo, DNI y cantidad de votos. Además, crearemos una clase Simulador que va a 
 // tener los métodos para manejar los alumnos y sus votaciones. Estos métodos serán llamados 
-// desde el main. 
+// desde el main.
 // • La clase Simulador debe tener un método que genere un listado de alumnos manera 
 // aleatoria y lo retorne. Las combinaciones de nombre y apellido deben ser generadas de 
 // manera aleatoria. Nota: usar listas de tipo String para generar los nombres y los apellidos.  
@@ -14,7 +14,7 @@
 // listas a cada objeto Alumno. No puede haber dos alumnos con el mismo dni, pero si con el 
 // mismo nombre.
 // • Se debe imprimir por pantalla el listado de alumnos.  
-// • Una vez hecho esto debemos generar una clase Voto, esta clase tendrá como atributos, 
+// • Una vez hecho esto debemos generar una clase Voto, esta clase tendrá como atributos,
 // un objeto Alumno que será el alumno que vota y una lista de los alumnos a los que votó. 
 // • Crearemos un método votación en la clase Simulador que, recibe el listado de alumnos y 
 // para cada alumno genera tres votos de manera aleatoria. En este método debemos 
@@ -31,6 +31,25 @@
 // los 5 facilitadores y los 5 facilitadores suplentes. 
 package ejercicio4extra;
 
-public class app {
+import java.util.ArrayList;
 
+import ejercicio4extra.entidades.Alumno;
+import ejercicio4extra.entidades.Simulador;
+import ejercicio4extra.entidades.Voto;
+
+public class app {
+    public static void main(String[] args) throws Exception {
+        Simulador simulador = new Simulador();
+        final int CANTIDAD = 15;
+
+        ArrayList<String> nombres = simulador.generarNombres(CANTIDAD);
+        ArrayList<Integer> documentos = simulador.generarDocumentos(CANTIDAD);
+        ArrayList<Alumno> alumnos = simulador.generarAlumnos(nombres, documentos);
+        simulador.mostrarAlumnos(alumnos);
+
+        ArrayList<Voto> votos = simulador.votacion(alumnos);
+        simulador.mostrarVotos(alumnos, votos);
+
+        simulador.recuentoVotos(alumnos);
+    }
 }

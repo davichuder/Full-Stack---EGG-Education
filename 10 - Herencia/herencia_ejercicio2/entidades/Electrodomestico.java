@@ -19,6 +19,8 @@
 // precio. Esta es la lista de precios: 
 package herencia_ejercicio2.entidades;
 
+import java.util.Scanner;
+
 import herencia_ejercicio2.enums.Color;
 import herencia_ejercicio2.enums.ConsumoEnergetico;
 
@@ -27,6 +29,8 @@ public class Electrodomestico {
     protected Color color;
     protected ConsumoEnergetico consumo;
     protected int peso;
+
+    final Scanner scanner = new Scanner(System.in);
 
     public Electrodomestico() {
     }
@@ -68,6 +72,14 @@ public class Electrodomestico {
 
     public void setPeso(int peso) {
         this.peso = peso;
+    }
+
+    // • Método comprobarConsumoEnergetico(char letra): comprueba que la letra es
+    // correcta, sino es correcta usara la letra F por defecto.
+    // Este método se debe invocar al crear el objeto y no será visible.
+    public void comprobarConsumoEnergetico(Character letra) {
+        System.out.println("Ingrese la letra de consumo energetico");
+        scanner.nextLine().charAt(0);
     }
 
 }

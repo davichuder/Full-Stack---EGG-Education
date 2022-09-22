@@ -4,7 +4,7 @@ package ejercicio4extra.entidades;
 
 public class Alumno {
     public String nombre_completo;
-    private int dni;
+    private Integer dni;
     private int cantidad_votos;
 
     public Alumno() {
@@ -29,7 +29,7 @@ public class Alumno {
         this.nombre_completo = nombre_completo;
     }
 
-    public int getDni() {
+    public Integer getDni() {
         return this.dni;
     }
 
@@ -37,7 +37,7 @@ public class Alumno {
         this.dni = dni;
     }
 
-    public int getCantidad_votos() {
+    public Integer getCantidad_votos() {
         return this.cantidad_votos;
     }
 
@@ -52,5 +52,9 @@ public class Alumno {
                 ", dni='" + getDni() + "'" +
                 ", cantidad_votos='" + getCantidad_votos() + "'" +
                 "}";
+    }
+
+    public void aumentarVoto() {
+        this.cantidad_votos++;
     }
 }
