@@ -17,7 +17,7 @@
 // precio se le da un valor base de $1000. 
 // • Método precioFinal(): según el consumo energético y su tamaño, aumentará el valor del 
 // precio. Esta es la lista de precios: 
-package herencia_ejercicio2.entidades;
+package herencia_ejercicio3.entidades;
 
 import java.util.Scanner;
 

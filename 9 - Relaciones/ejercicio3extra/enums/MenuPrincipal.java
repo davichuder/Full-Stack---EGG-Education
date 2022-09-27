@@ -10,6 +10,7 @@ public enum MenuPrincipal {
     GESTIONVEHICULOS("2 - Gestion de vehículos"),
     GESTIONPOLIZAS("3 - Gestion de polizas"),
     GESTIONCUOTAS("4 - Gestion de cuotas"),
+
     MENU("\033[H\033[2J" + "\tMENU PRINCIPAL\n" +
             SALIR + "\n" +
             GESTIONCLIENTES + "\n" +

@@ -1,6 +1,7 @@
 package prueba;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -62,22 +63,46 @@ public class app {
 
                 // -------------------------
 
-                int a = 10;
-                int b = 20;
-                String mensaje;
+                // int a = 10;
+                // int b = 20;
+                // String mensaje;
 
-                if ((a + b) > 30)
-                        mensaje = "Mayor a 30";
-                else
-                        mensaje = "Menor a 30";
-                System.out.println(mensaje);
+                // if ((a + b) > 30)
+                // mensaje = "Mayor a 30";
+                // else
+                // mensaje = "Menor a 30";
+                // System.out.println(mensaje);
 
-                // CONDICION ? DEVOLVER SI VERDADERO: DEVOLVER SI FALSO
+                // // CONDICION ? DEVOLVER SI VERDADERO: DEVOLVER SI FALSO
 
-                System.out.println((a + b) > 30 ? "Mayor a 30" : "Menor a 30");
+                // System.out.println((a + b) > 30 ? "Mayor a 30" : "Menor a 30");
 
-                int resultado = (a > 30 ? 10 : 0)
-                                + ((a >= 3 && a <= 10) ? 5 : 0);
+                // int resultado = (a > 30 ? 10 : 0)
+                // + ((a >= 3 && a <= 10) ? 5 : 0);
+                // -------------------------
+
+                // System.out.println((char) (65)); // A
+                // char letra = "A".charAt(0);
+                // System.out.println(letra == 'A');
+                // System.out.println(letra == 'B');
+                // if (letra == 'A' || letra == 'B' || letra == 'C' || letra == 'D' || letra ==
+                // 'E')
+                // System.out.println(letra);
+                // System.out.println(letra == 'F');
+
+                // Calendar calendar = Calendar.getInstance();
+                // Calendar calendar2 = Calendar.getInstance();
+                // System.out.println(Calendar.);
+                // -------------------------
+                // ArrayList<String> lista = new ArrayList<String>();
+                // lista.add("A");
+                // lista.add("B");
+                // lista.add("C");
+                // lista.add("D");
+                // System.out.println(lista.indexOf("E"));
+                // -------------------------
+                System.out.println("AAAAAAAAAAAAAAAAAA");
+                System.out.println("\033[H\033[2J" + "BBBBBBBBBBBBBBBB");
         }
 
         public static void aaa(String x) {
