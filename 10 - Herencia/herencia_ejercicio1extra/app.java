@@ -19,19 +19,11 @@
 
 package herencia_ejercicio1extra;
 
-import java.util.Calendar;
-import java.util.concurrent.TimeUnit;
+import herencia_ejercicio1extra.entidades.Menu;
 
 public class app {
     public static void main(String[] args) {
-        Calendar calendario1 = Calendar.getInstance();
-        calendario1.set(2022, 9, 26);
-
-        Calendar calendario2 = Calendar.getInstance();
-        calendario2.set(2020, 9, 16);
-
-        long diferencia = calendario1.getTimeInMillis() - calendario2.getTimeInMillis();
-        int dias = (int) TimeUnit.MILLISECONDS.toDays(diferencia);
-        System.out.println(dias);
+        final int CANTIDAD_AMARRES = 10;
+        Menu.ejecutar(CANTIDAD_AMARRES);
     }
 }

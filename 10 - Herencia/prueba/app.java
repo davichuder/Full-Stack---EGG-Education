@@ -1,8 +1,10 @@
 package prueba;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -101,12 +103,36 @@ public class app {
                 // lista.add("D");
                 // System.out.println(lista.indexOf("E"));
                 // -------------------------
-                System.out.println("AAAAAAAAAAAAAAAAAA");
-                System.out.println("\033[H\033[2J" + "BBBBBBBBBBBBBBBB");
+                // System.out.println("AAAAAAAAAAAAAAAAAA");
+                // System.out.println("\033[H\033[2J" + "BBBBBBBBBBBBBBBB");
+                // ---------------------------
+                // Calendar calendario1 = Calendar.getInstance();
+                // calendario1.set(2022, 9, 26);
+
+                // Calendar calendario2 = Calendar.getInstance();
+                // calendario2.set(2022, 9, 16);
+
+                // long diferencia = calendario1.getTimeInMillis() -
+                // calendario2.getTimeInMillis();
+                // int dias = (int) TimeUnit.MILLISECONDS.toDays(diferencia);
+                // System.out.println(dias);
+                // ---------------------------
+                System.out.println(StringToCalendar("01-01-22", "dd-MM-yy"));
         }
 
         public static void aaa(String x) {
                 System.out.println(x.toUpperCase());
+        }
+
+        public static Calendar StringToCalendar(String time, String format) {
+                Calendar calendar = Calendar.getInstance();
+                SimpleDateFormat dateformat = new SimpleDateFormat(format);
+                try {
+                        calendar.setTime(dateformat.parse(time));
+                        return calendar;
+                } catch (Exception e) {
+                        return calendar;
+                }
         }
 
 }

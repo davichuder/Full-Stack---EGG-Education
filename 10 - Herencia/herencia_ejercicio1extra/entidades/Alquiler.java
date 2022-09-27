@@ -79,8 +79,8 @@ public class Alquiler {
         return "{" +
                 " nombre='" + getNombre() + "'" +
                 ", documento='" + getDocumento() + "'" +
-                ", fecha_inicio='" + getFecha_inicio() + "'" +
-                ", fecha_fin='" + getFecha_fin() + "'" +
+                ", fecha_inicio='" + getFecha_inicio().getTime() + "'" +
+                ", fecha_fin='" + getFecha_fin().getTime() + "'" +
                 ", posición_amarre='" + getPosición_amarre() + "'" +
                 ", barco='" + getBarco() + "'" +
                 "}";
