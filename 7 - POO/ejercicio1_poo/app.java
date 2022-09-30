@@ -5,10 +5,10 @@ constructor vacío. Crear un método para cargar un libro pidiendo los datos al 
 luego informar mediante otro método el número de ISBN, el título, el autor del libro y el 
 numero de páginas.
  */
-package ejercicio1;
+package ejercicio1_poo;
 
-import ejercicio1.entidades.Libro;
-import ejercicio1.servicios.LibroServicio;
+import ejercicio1_poo.entidades.Libro;
+import ejercicio1_poo.servicios.LibroServicio;
 
 public class app {
 

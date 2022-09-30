@@ -16,9 +16,9 @@ una división por cero, el método devuelve 0 y se le informa al usuario el erro
 informa al usuario. Si no, se hace la división y se devuelve el resultado al main
 */
 
-package ejercicio3;
+package ejercicio3_poo;
 
-import ejercicio3.entidades.Operacion;
+import ejercicio3_poo.entidades.Operacion;
 
 public class app {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package ejercicio3.entidades;
+package ejercicio3_poo.entidades;
 
 public class Operacion {
     // Parametros

@@ -1,8 +1,8 @@
-package ejercicio1.servicios;
+package ejercicio1_poo.servicios;
 
 import java.util.Scanner;
 
-import ejercicio1.entidades.Libro;
+import ejercicio1_poo.entidades.Libro;
 
 public class LibroServicio {
     // Creo scanner para pedir datos

@@ -8,9 +8,9 @@ d) Método area(): para calcular el área de la circunferencia (𝐀𝐫𝐞𝐚
 e) Método perimetro(): para calcular el perímetro (𝐏𝐞𝐫𝐢𝐦𝐞𝐭𝐫𝐨=𝟐∗𝛑∗𝐫𝐚𝐝𝐢𝐨).
  */
 
-package ejercicio2;
+package ejercicio2_poo;
 
-import ejercicio2.entidades.Circunferencia;
+import ejercicio2_poo.entidades.Circunferencia;
 
 public class app {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package ejercicio1.entidades;
+package ejercicio1_poo.entidades;
 
 public class Libro {
     // Defino parametros ISBN, titulo, autor, numero de paginas

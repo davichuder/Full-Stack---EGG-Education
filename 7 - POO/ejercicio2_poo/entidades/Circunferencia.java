@@ -1,4 +1,4 @@
-package ejercicio2.entidades;
+package ejercicio2_poo.entidades;
 
 import java.util.Scanner;
 
