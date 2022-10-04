@@ -6,7 +6,7 @@ public class Hotel extends Alojamiento {
     protected int cantidad_habitaciones;
     protected int n_camas;
     protected int cantidad_pisos;
-    public int precio_habitacion;
+    public Integer precio_habitacion;
 
     public Hotel(String nombre, String direccion, String localidad, String gerente, int cantidad_habitaciones,
             int n_camas, int cantidad_pisos) {
@@ -40,7 +40,7 @@ public class Hotel extends Alojamiento {
         this.cantidad_pisos = cantidad_pisos;
     }
 
-    public int getPrecio_habitacion() {
+    public Integer getPrecio_habitacion() {
         return precio_habitacion;
     }
 

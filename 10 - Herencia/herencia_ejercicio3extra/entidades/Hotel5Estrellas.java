@@ -44,7 +44,7 @@ public class Hotel5Estrellas extends Hotel4Estrellas {
 
     @Override
     public String toString() {
-        return "Hotel 5 Estrellas{" +
+        return "Hotel 5 Estrellas {" +
                 " nombre='" + getNombre() + "'" +
                 ", direccion='" + getDireccion() + "'" +
                 ", localidad='" + getLocalidad() + "'" +

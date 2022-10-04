@@ -1,61 +1,46 @@
 package herencia_ejercicio3extra;
 
-// import herencia_ejercicio3extra.entidades.Alojamiento;
-// import herencia_ejercicio3extra.entidades.Camping;
-// import herencia_ejercicio3extra.entidades.ExtraHotelero;
-// import herencia_ejercicio3extra.entidades.Hotel;
-// import herencia_ejercicio3extra.enums.ClaseGimnasio;
-// import herencia_ejercicio3extra.entidades.Gimnasio;
-// import herencia_ejercicio3extra.entidades.Restaurante;
-// import herencia_ejercicio3extra.entidades.Hotel4Estrellas;
-// import herencia_ejercicio3extra.entidades.Hotel5Estrellas;
-// import herencia_ejercicio3extra.entidades.Residencia;
+import java.util.ArrayList;
+
+import herencia_ejercicio3extra.entidades.Alojamiento;
+import herencia_ejercicio3extra.entidades.Menu;
+import herencia_ejercicio3extra.enums.ClaseGimnasio;
+
+import herencia_ejercicio3extra.entidades.Camping;
+import herencia_ejercicio3extra.entidades.Gimnasio;
+import herencia_ejercicio3extra.entidades.Restaurante;
+import herencia_ejercicio3extra.entidades.Hotel4Estrellas;
+import herencia_ejercicio3extra.entidades.Hotel5Estrellas;
+import herencia_ejercicio3extra.entidades.Residencia;
 
 public class app {
     public static void main(String[] args) {
-        // Alojamiento alojamiento = new Alojamiento("Prexey", "Perito Moreno 375",
-        // "Ezeiza", "Fabian Morales");
-        // System.out.println(alojamiento);
+        Restaurante restaurante = new Restaurante("Lorenzo", 10);
+        Gimnasio gimnasio = new Gimnasio(ClaseGimnasio.A);
 
-        // Hotel hotel = new Hotel("Prexey", "Perito Moreno 375", "Ezeiza", "Fabian
-        // Morales", 10, 3, 5);
-        // hotel.calcularPrecio_habitacion();
-        // System.out.println(hotel);
+        Hotel4Estrellas hotel4estrellas = new Hotel4Estrellas("Prexey", "Moreno 375",
+                "Ezeiza", "Fabian Morales", 10, 3,
+                5, gimnasio, restaurante);
+        hotel4estrellas.calcularPrecio_habitacion();
 
-        // Restaurante restaurante = new Restaurante("Lorenzo", 10);
-        // System.out.println(restaurante);
+        Hotel5Estrellas hotel5estrellas = new Hotel5Estrellas("Prexey2", "Perito 375",
+                "Ezeiza", "Fabian Morales", 10, 3, 5,
+                new Gimnasio(ClaseGimnasio.A), new Restaurante("Lorenzo", 10), 1, 10, 10);
+        hotel5estrellas.calcularPrecio_habitacion();
 
-        // Gimnasio gimnasio = new Gimnasio(ClaseGimnasio.A);
-        // System.out.println(gimnasio);
+        Camping camping = new Camping("Prexey4", "Curuzu", "Ezeiza",
+                "Fabian Morales", true,
+                200, 100, 3, true);
 
-        // Hotel4Estrellas hotel4estrellas = new Hotel4Estrellas("Prexey", "Moreno 375",
-        // "Ezeiza", "Fabian Morales", 10, 3,
-        // 5, gimnasio, restaurante);
-        // hotel4estrellas.calcularPrecio_habitacion();
-        // System.out.println(hotel4estrellas);
+        Residencia residencia = new Residencia("Prexey5", "Cuatia",
+                "Ezeiza", "Fabian Morales", true,
+                200, 100, false, true);
 
-        // Hotel5Estrellas hotel5estrellas = new Hotel5Estrellas("Prexey", "Perito
-        // Moreno 375",
-        // "Ezeiza", "Fabian Morales", 10, 3, 5,
-        // new Gimnasio(ClaseGimnasio.A), new Restaurante("Lorenzo", 10), 1, 10, 10);
-        // hotel5estrellas.calcularPrecio_habitacion();
-        // System.out.println(hotel5estrellas);
-
-        // ExtraHotelero extraHotelero = new ExtraHotelero("Prexey", "Perito Moreno
-        // 375", "Ezeiza", "Fabian Morales", true,
-        // 200);
-        // System.out.println(extraHotelero);
-
-        // Camping camping = new Camping("Prexey", "Perito Moreno 375", "Ezeiza",
-        // "Fabian Morales", true,
-        // 200, 100, 3, true);
-        // System.out.println(camping);
-
-        // Residencia residencia = new Residencia("Prexey", "Perito Moreno 375",
-        // "Ezeiza", "Fabian Morales", true,
-        // 200, 100, false, true);
-        // System.out.println(residencia);
-
-        System.out.println();
+        ArrayList<Alojamiento> alojamientos = new ArrayList<Alojamiento>();
+        alojamientos.add(hotel4estrellas);
+        alojamientos.add(hotel5estrellas);
+        alojamientos.add(camping);
+        alojamientos.add(residencia);
+        Menu.ejecutar(alojamientos);
     }
 }

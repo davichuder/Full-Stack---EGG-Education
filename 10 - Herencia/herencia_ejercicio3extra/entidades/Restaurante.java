@@ -1,9 +1,12 @@
 // Nombre del Restaurante, Capacidad del Restaurante
 package herencia_ejercicio3extra.entidades;
 
+import java.util.Scanner;
+
 public class Restaurante {
     public String nombre;
     private int capacidad;
+    final static Scanner scanner = new Scanner(System.in);
 
     public Restaurante(String nombre, int capacidad) {
         this.nombre = nombre;
@@ -43,5 +46,13 @@ public class Restaurante {
         if (30 <= this.capacidad && this.capacidad <= 50)
             return 30;
         return 50;
+    }
+
+    public static Restaurante crearRestaurante() {
+        System.out.println("Ingrese nombre del restaurante");
+        String nombre = scanner.nextLine();
+        System.out.println("Ingrese capacidad del restaurante");
+        int capacidad = Integer.parseInt(scanner.nextLine());
+        return new Restaurante(nombre, capacidad);
     }
 }

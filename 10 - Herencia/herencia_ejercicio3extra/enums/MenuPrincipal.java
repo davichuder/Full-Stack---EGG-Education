@@ -9,7 +9,9 @@ public enum MenuPrincipal {
     OPCION1("1-Agregar alojamiento"),
     OPCION2("2-Eliminar alojamiento"),
     OPCION3("3-Mostrar todos los alojamientos"),
-    OPCION4("4-Mostrar con filtros");
+    OPCION4("4-Mostrar hoteles con precio descendente"),
+    OPCION5("5-Mostrar campings con restaurante"),
+    OPCION6("6-Mostrar residencias con descuento");
 
     private String texto;
     private static final Scanner scanner = new Scanner(System.in);
@@ -29,6 +31,6 @@ public enum MenuPrincipal {
         for (MenuPrincipal opcion : MenuPrincipal.values()) {
             System.out.println(opcion);
         }
-        return scanner.nextInt();
+        return Integer.parseInt(scanner.nextLine());
     }
 }
