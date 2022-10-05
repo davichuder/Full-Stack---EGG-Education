@@ -1,10 +1,11 @@
 {
     "java.project.sourcePaths": [
+        "prueba",
         "9 - Relaciones",
         "8 - Colecciones",
         "7 - POO",
         "6 - Java",
         "10 - Herencia",
-        "prueba"
+        "11 - Excepciones"
     ]
 }
