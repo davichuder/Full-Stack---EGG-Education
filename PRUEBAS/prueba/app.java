@@ -1,5 +1,6 @@
 package prueba;
 
+import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -7,6 +8,9 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 public class app {
 
@@ -117,7 +121,14 @@ public class app {
                 // int dias = (int) TimeUnit.MILLISECONDS.toDays(diferencia);
                 // System.out.println(dias);
                 // ---------------------------
-                System.out.println(StringToCalendar("01-01-22", "dd-MM-yy"));
+                // System.out.println(StringToCalendar("01-01-22", "dd-MM-yy"));
+                // --------------
+                JOptionPane aaa = new JOptionPane();
+                aaa.setBackground(Color.BLUE);
+                JDialog jd = aaa.createDialog(aaa, "Message");
+                jd.setVisible(true);
+                // aaa.JOptionPane.showInputDialog(aaa, "as");
+                // JOptionPane.showInputDialog("Sr. Stark, cuantos minutos desea correr?");
         }
 
         public static void aaa(String x) {

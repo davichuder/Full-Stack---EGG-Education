@@ -12,7 +12,7 @@ public class app {
             System.out.println(aux.getClass());
         }
 
-        Hijo1 hijo1 = (Hijo1) lista.get(0);
+        // Hijo1 hijo1 = (Hijo1) lista.get(0);
 
         for (Padre posicion : lista) {
             if (posicion instanceof Hijo1) {
