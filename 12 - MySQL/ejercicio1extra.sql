@@ -1,4 +1,4 @@
--- Active: 1665100819101@@localhost@3306@nba
+-- Active: 1665703324796@@localhost@3306@nba
 USE nba;
 -- 1. Mostrar el nombre de todos los jugadores ordenados alfabéticamente.
 SELECT nombre FROM jugador ORDER BY nombre;
@@ -36,6 +36,39 @@ GROUP BY j.nombre;
 SELECT nombre_equipo, COUNT(*) as 'Cantidad'
 FROM jugador
 GROUP BY nombre_equipo;
+-- 12. Mostrar el jugador que más puntos ha realizado en toda su carrera.
+#Forma 1
+SELECT nombre
+FROM jugador
+WHERE codigo =(SELECT jugador
+                FROM estadistica
+                GROUP BY jugador
+                HAVING SUM(Puntos_por_partido) = (SELECT MAX(sumas.Total)
+                                                    FROM (SELECT SUM(Puntos_por_partido) as 'Total'
+                                                            FROM estadistica
+                                                            GROUP BY jugador) as sumas));                             
+#Forma 2
+select suma.nombre
+from (select jug.nombre, sum(est.Puntos_por_partido) as 'puntos'
+        from jugador jug, estadistica est
+        where jug.codigo = est.jugador 
+        group by jug.nombre) suma
+where suma.puntos = (select max(suma2.puntos) from (select jug.nombre, sum(est.Puntos_por_partido) as puntos 
+        from jugador jug, estadistica est
+        where jug.codigo = est.jugador 
+        group by jug.nombre) suma2);
+#Forma 3
+SELECT @maximo:=MAX(sumas.Total)
+FROM (SELECT SUM(Puntos_por_partido) as 'Total'
+        FROM estadistica
+        GROUP BY jugador) as sumas;
+SELECT @cod_mejor_jugador:=jugador
+FROM estadistica
+GROUP BY jugador
+HAVING SUM(Puntos_por_partido) = @maximo;
+SELECT nombre, (SELECT SUM(Puntos_por_partido) FROM estadistica WHERE jugador = @cod_mejor_jugador)
+FROM jugador
+WHERE codigo = @cod_mejor_jugador;
 -- 13. Mostrar el nombre del equipo, conferencia y división del jugador más alto de la NBA.
 SELECT j.nombre, e.conferencia, e.division
 FROM jugador as j

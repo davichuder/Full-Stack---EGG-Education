@@ -1,4 +1,4 @@
--- Active: 1665100819101@@localhost@3306@personal
+-- Active: 1665703324796@@localhost@3306@personal
 USE personal;
 -- 1. Obtener los datos completos de los empleados.
 SELECT * FROM empleado;
@@ -64,12 +64,14 @@ SELECT id_depto, COUNT(*) as 'Cantidad' FROM empleado GROUP BY id_depto HAVING C
 SELECT *, COUNT(*) as 'Cantidad'
 FROM empleado
 GROUP BY id_depto
-HAVING Cantidad > 2 AND cargo LIKE 'Jefe%';
+HAVING Cantidad >= 2 AND cargo LIKE 'Jefe%';
 -- 26. Hallar los departamentos que no tienen empleados
-SELECT *, COUNT(*)
-FROM empleado
-GROUP BY id_depto
-HAVING COUNT(*) = 0;
+SELECT *
+FROM departamento as d
+LEFT JOIN empleado as e
+ON d.id_depto = e.id_depto
+GROUP BY d.id_depto
+HAVING count(e.nombre) = 0;
 -- 27. Mostrar la lista de los empleados cuyo salario es mayor o igual que el promedio de la empresa. Ordenarlo por departamento.
 SELECT *
 FROM empleado

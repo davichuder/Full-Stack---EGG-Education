@@ -1,3 +1,4 @@
+-- Active: 1665703324796@@localhost@3306@jardineria
 DROP DATABASE IF EXISTS tienda;
 CREATE DATABASE tienda CHARACTER SET utf8mb4;
 USE tienda;
