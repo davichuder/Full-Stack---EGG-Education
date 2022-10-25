@@ -96,8 +96,12 @@ ON p.equipo_local = e.nombre
 WHERE e.division = 'Pacific'
 GROUP BY e.nombre;
 -- 17. Mostrar los puntos de cada equipo en los partidos, tanto de local como de visitante.  
-SELECT * FROM partido;
 SELECT equipo_local, puntos_local, equipo_visitante, puntos_visitante FROM partido;
+
+SELECT DISTINCT(e.nombre),
+        (SELECT SUM(puntos_local) FROM partido WHERE equipo_local = e.nombre) as Puntos_local,
+        (SELECT SUM(puntos_visitante) FROM partido WHERE equipo_visitante = e.nombre) as Puntos_visitante
+FROM equipo as e;
 -- 18. Mostrar quien gana en cada partido (codigo, equipo_local, equipo_visitante, equipo_ganador), en caso de empate sera null. 
 SELECT codigo, equipo_local, equipo_visitante, IF(puntos_local>puntos_visitante, equipo_local, IF(puntos_local<puntos_visitante, equipo_visitante, null)) as 'equipo_ganador'
 FROM partido;

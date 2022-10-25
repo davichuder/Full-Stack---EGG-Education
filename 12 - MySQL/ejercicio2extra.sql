@@ -83,37 +83,99 @@ ON c.codigo_empleado_rep_ventas = e.codigo_empleado
 WHERE p.fecha_pago IS NULL;
 -- 4. Devuelve el nombre de los clientes que han hecho pagos y el nombre de sus representantes junto
 -- con la ciudad de la oficina a la que pertenece el representante.
-
+SELECT DISTINCT(c.nombre_cliente), e.nombre, o.ciudad
+FROM cliente as c
+RIGHT JOIN pago as p
+ON c.codigo_cliente = p.codigo_cliente
+INNER JOIN empleado as e
+ON c.codigo_empleado_rep_ventas = e.codigo_empleado
+INNER JOIN oficina as o
+ON e.codigo_oficina = o.codigo_oficina;
 -- 5. Devuelve  el  nombre  de  los  clientes  que  no  hayan  hecho  pagos  y  el  nombre  de  sus 
 -- representantes junto con la ciudad de la oficina a la que pertenece el representante. 
--- 6. Lista la dirección de las oficinas que tengan clientes en Fuenlabrada. 
+SELECT DISTINCT(c.nombre_cliente), e.nombre, o.ciudad
+FROM cliente as c
+LEFT JOIN pago as p
+ON c.codigo_cliente = p.codigo_cliente
+INNER JOIN empleado as e
+ON c.codigo_empleado_rep_ventas = e.codigo_empleado
+INNER JOIN oficina as o
+ON e.codigo_oficina = o.codigo_oficina
+WHERE p.codigo_cliente IS NULL;
+-- 6. Lista la dirección de las oficinas que tengan clientes en Fuenlabrada.
+SELECT * FROM cliente WHERE ciudad = "Fuenlabrada";
+SELECT * FROM oficina;
+SELECT DISTINCT(o.linea_direccion1), o.linea_direccion2
+FROM oficina as o
+INNER JOIN empleado as e
+ON o.codigo_oficina = e.codigo_oficina
+INNER JOIN cliente as c
+ON e.codigo_empleado = c.codigo_empleado_rep_ventas
+WHERE c.ciudad = "Fuenlabrada";
 -- 7. Devuelve el nombre de los clientes y el nombre de sus representantes junto con la ciudad 
--- de la oficina a la que pertenece el representante. 
--- 8. Devuelve un listado con el nombre de los empleados junto con el nombre de sus jefes. 
--- 9. Devuelve el nombre de los clientes a los que no se les ha entregado a tiempo un pedido. 
+-- de la oficina a la que pertenece el representante.
+SELECT DISTINCT(c.nombre_cliente), e.nombre, o.ciudad
+FROM oficina as o
+INNER JOIN empleado as e
+ON o.codigo_oficina = e.codigo_oficina
+INNER JOIN cliente as c
+ON e.codigo_empleado = c.codigo_empleado_rep_ventas;
+-- 8. Devuelve un listado con el nombre de los empleados junto con el nombre de sus jefes.
+SELECT nombre, (SELECT nombre FROM empleado WHERE e.codigo_jefe = codigo_empleado)
+FROM empleado as e;
+-- 9. Devuelve el nombre de los clientes a los que no se les ha entregado a tiempo un pedido.
+SELECT c.nombre_cliente
+FROM cliente as c
+INNER JOIN pedido as p
+ON c.codigo_cliente = p.codigo_cliente
+WHERE p.fecha_entrega > p.fecha_esperada;
 -- 10. Devuelve un listado de las diferentes gamas de producto que ha comprado cada cliente.
+SELECT c.nombre_cliente, prod.gama
+FROM cliente as c
+INNER JOIN pedido as p
+ON c.codigo_cliente = p.codigo_cliente
+INNER JOIN detalle_pedido as d
+ON d.codigo_pedido = p.codigo_pedido
+INNER JOIN producto as prod
+ON prod.codigo_producto = d.codigo_producto
+GROUP BY c.nombre_cliente, prod.gama;
 
 -- Consultas multitabla (Composición externa) 
 -- Resuelva todas las consultas utilizando las cláusulas LEFT JOIN, RIGHT JOIN, JOIN. 
 -- 1. Devuelve un listado que muestre solamente los clientes que no han realizado ningún pago. 
--- 2. Devuelve  un  listado  que  muestre  solamente  los  clientes  que  no  han  realizado  ningún 
--- pedido. 
--- 3. Devuelve un listado que muestre los clientes que no han realizado ningún pago y los que 
--- no han realizado ningún pedido. 
--- 4. Devuelve  un  listado  que  muestre  solamente  los  empleados  que  no  tienen  una  oficina 
--- asociada. 
--- 5. Devuelve  un  listado  que  muestre  solamente  los  empleados  que  no  tienen  un  cliente 
--- asociado. 
--- 6. Devuelve un listado que muestre los empleados que no tienen una oficina asociada y los 
--- que no tienen un cliente asociado. 
+SELECT c.*
+FROM pago as p
+RIGHT JOIN cliente as c
+ON p.codigo_cliente = c.codigo_cliente
+WHERE p.codigo_cliente IS NULL;
+-- 2. Devuelve  un  listado  que  muestre  solamente  los  clientes  que  no  han  realizado  ningún pedido. 
+SELECT c.*
+FROM pedido as p
+RIGHT JOIN cliente as c
+ON p.codigo_cliente = c.codigo_cliente
+WHERE p.codigo_cliente IS NULL;
+-- 3. Devuelve un listado que muestre los clientes que no han realizado ningún pago y los que no han realizado ningún pedido.
+SELECT DISTINCT(c.codigo_cliente), c.nombre_cliente
+FROM cliente as c
+LEFT JOIN pedido as p1
+ON p1.codigo_cliente = c.codigo_cliente
+LEFT JOIN pago as p2
+ON p2.codigo_cliente = c.codigo_cliente
+WHERE (p1.codigo_cliente IS NULL) OR (p2.codigo_cliente IS NULL);
+-- 4. Devuelve  un  listado  que  muestre  solamente  los  empleados  que  no  tienen  una  oficina asociada.
+SELECT *
+FROM empleado as e
+LEFT JOIN oficina as o
+ON e.codigo_oficina = o.codigo_oficina
+WHERE e.codigo_oficina IS NULL;
+-- 5. Devuelve  un  listado  que  muestre  solamente  los  empleados  que  no  tienen  un  cliente asociado. 
+
+-- 6. Devuelve un listado que muestre los empleados que no tienen una oficina asociada y los que no tienen un cliente asociado. 
 -- 7. Devuelve un listado de los productos que nunca han aparecido en un pedido. 
 -- 8. Devuelve  las  oficinas  donde  no  trabajan  ninguno  de  los  empleados  que  hayan  sido  los 
--- representantes de ventas de algún cliente que haya realizado la compra de algún producto 
--- de la gama Frutales. 
--- 9. Devuelve un listado con los clientes que han realizado algún pedido, pero no han realizado 
--- ningún pago. 
--- 10. Devuelve un listado con los datos de los empleados que no tienen clientes asociados y el 
--- nombre de su jefe asociado.
+-- representantes de ventas de algún cliente que haya realizado la compra de algún producto de la gama Frutales. 
+-- 9. Devuelve un listado con los clientes que han realizado algún pedido, pero no han realizado ningún pago. 
+-- 10. Devuelve un listado con los datos de los empleados que no tienen clientes asociados y el nombre de su jefe asociado.
 
 -- Consultas resumen 
 -- 1. ¿Cuántos empleados hay en la compañía? 
@@ -164,9 +226,9 @@ WHERE p.fecha_pago IS NULL;
 -- 1. Devuelve el nombre del cliente con mayor límite de crédito. 
 -- 2. Devuelve el nombre del producto que tenga el precio de venta más caro. 
 -- 3. Devuelve el producto que menos unidades tiene en stock. 
+
 -- Subconsultas con IN y NOT IN 
--- 1. Devuelve  el  nombre,  apellido1  y  cargo  de  los  empleados  que  no  representen  a  ningún 
--- cliente. 
+-- 1. Devuelve  el  nombre,  apellido1  y  cargo  de  los  empleados  que  no  representen  a  ningún cliente. 
 -- 2. Devuelve un listado que muestre solamente los clientes que no han realizado ningún pago. 
 -- 3. Devuelve un listado que muestre solamente los clientes que sí han realizado ningún pago.  
 -- 4. Devuelve un listado de los productos que nunca han aparecido en un pedido. 
