@@ -1,11 +1,16 @@
 {
     "java.project.sourcePaths": [
-        "prueba",
         "9 - Relaciones",
         "8 - Colecciones",
         "7 - POO",
         "6 - Java",
+        "11 - Excepciones",
         "10 - Herencia",
-        "11 - Excepciones"
+        "14 - JDBC"
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "14 - JDBC/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30.jar",
+        "d:\\Cosas\\GIT\\mysql-connector-java-8.0.30\\mysql-connector-java-8.0.30.jar"
     ]
 }

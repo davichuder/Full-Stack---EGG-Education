@@ -1,4 +1,4 @@
-// package prueba_de_conexion;
+package prueba_de_conexion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
