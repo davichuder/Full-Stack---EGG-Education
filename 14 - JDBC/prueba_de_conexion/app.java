@@ -23,7 +23,14 @@ public class app {
             ResultSet resultSet = statement.executeQuery(SQL_QUERY);
 
             while (resultSet.next()) {
-                System.out.println(resultSet.getInt(1));
+                // System.out.println(resultSet.getInt(1));
+                System.out.println(resultSet.getString("codigo") +
+                        resultSet.getString("nombre") +
+                        resultSet.getString("procedencia") +
+                        resultSet.getString("altura") +
+                        resultSet.getString("peso") +
+                        resultSet.getString("posicion") +
+                        resultSet.getString("nombre_equipo"));
             }
 
         } catch (ClassNotFoundException e) {
