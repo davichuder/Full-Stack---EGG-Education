@@ -1,16 +1,22 @@
 {
     "java.project.sourcePaths": [
-        "9 - Relaciones",
-        "8 - Colecciones",
-        "7 - POO",
-        "6 - Java",
-        "11 - Excepciones",
-        "10 - Herencia",
-        "14 - JDBC"
+        "15 - JPA/prueba"
     ],
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "14 - JDBC/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30.jar",
-        "d:\\Cosas\\GIT\\mysql-connector-java-8.0.30\\mysql-connector-java-8.0.30.jar"
+        "d:\\Cosas\\GIT\\mysql-connector-java-8.0.30\\mysql-connector-java-8.0.30.jar",
+        "d:\\Cosas\\GIT\\eclipselink\\jlib\\eclipselink-sources.jar",
+        "d:\\Cosas\\GIT\\javax.persistence.jar",
+        "d:\\Cosas\\GIT\\Librerias\\jakarta.persistence-2.2.3.jar",
+        "d:\\Cosas\\GIT\\Librerias\\javax.persistence.jar",
+        "d:\\Cosas\\GIT\\Librerias\\org.eclipse.persistence.antlr-2.7.10.jar",
+        "d:\\Cosas\\GIT\\Librerias\\org.eclipse.persistence.asm-9.2.0.jar",
+        "d:\\Cosas\\GIT\\Librerias\\org.eclipse.persistence.core-2.7.10.jar",
+        "d:\\Cosas\\GIT\\Librerias\\org.eclipse.persistence.jpa.jpql-2.7.10.jar",
+        "d:\\Cosas\\GIT\\Librerias\\org.eclipse.persistence.jpa.modelgen.processor-2.7.10.jar",
+        "d:\\Cosas\\GIT\\Librerias\\org.eclipse.persistence.jpa-2.7.10.jar",
+        "d:\\Cosas\\GIT\\Librerias\\org.eclipse.persistence.moxy-2.7.10.jar",
+        "d:\\Cosas\\GIT\\Librerias\\mysql-connector-java-8.0.30\\mysql-connector-java-8.0.30.jar"
     ]
 }

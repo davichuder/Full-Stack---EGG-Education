@@ -1,0 +1,30 @@
+table, th, td {
+  text-align: center;
+  border: 1px solid black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#cabecera {
+  background-color: #333;
+  background-image: url(./imagenes/fondo_gris.gif);
+}
+
+th[scope="row"] {
+  background-color: #E6F3FF;
+}
+
+#dolar {
+  content: url(./imagenes/dolar.png);
+}
+
+#libra {
+  content: url(./imagenes/libra.png);
+}
+
+#euro_yen {
+  content: url(./imagenes/yen.png);
+}
+
+tr:nth-child(even) {
+  background-color: #FFFFCC;
+}

@@ -1,0 +1,17 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "d:\\Cosas\\GIT\\Librerias\\mysql-connector-java-8.0.30\\mysql-connector-java-8.0.30.jar",
+        "d:\\Cosas\\GIT\\Librerias\\jakarta.persistence-2.2.3.jar",
+        "d:\\Cosas\\GIT\\Librerias\\javax.persistence.jar",
+        "d:\\Cosas\\GIT\\Librerias\\org.eclipse.persistence.antlr-2.7.10.jar",
+        "d:\\Cosas\\GIT\\Librerias\\org.eclipse.persistence.asm-9.2.0.jar",
+        "d:\\Cosas\\GIT\\Librerias\\org.eclipse.persistence.core-2.7.10.jar",
+        "d:\\Cosas\\GIT\\Librerias\\org.eclipse.persistence.jpa.jpql-2.7.10.jar",
+        "d:\\Cosas\\GIT\\Librerias\\org.eclipse.persistence.jpa.modelgen.processor-2.7.10.jar",
+        "d:\\Cosas\\GIT\\Librerias\\org.eclipse.persistence.jpa-2.7.10.jar",
+        "d:\\Cosas\\GIT\\Librerias\\org.eclipse.persistence.moxy-2.7.10.jar"
+    ]
+}

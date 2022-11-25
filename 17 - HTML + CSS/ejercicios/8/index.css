@@ -1,0 +1,20 @@
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration-color: hotpink;
+}
+  
+a:visited {
+  color: pink;
+  background-color: transparent;
+}
+
+a:hover {
+  color: red;
+  background-color: blue;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+}

@@ -1,0 +1,22 @@
+h1 {
+    text-align:center;
+    color:red;
+    font-family: arial, helvetica; 
+    background-color: aqua;
+}
+
+h2 {
+    text-align:center;
+    color:rgb(41, 228, 228);
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    background-color: bisque;
+}
+
+p {
+    text-align: left;
+    color:green;
+}
+
+span {
+    font-weight: bold;
+}

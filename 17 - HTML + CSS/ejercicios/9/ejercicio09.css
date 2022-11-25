@@ -1,0 +1,71 @@
+h1 {
+    color:green
+}
+
+h2 {
+    color:blue;
+}
+
+strong {
+    color:red;
+}
+
+strong:last-child {
+    color: yellow;
+}
+
+span.destacado {
+    color:yellow;
+}
+
+span.especial {
+    color: purple;
+}
+
+a {
+    color:orange;
+}
+
+a:last-child {
+    color:green;
+}
+
+em {
+    color:blue;
+}
+
+#adicional {
+    color:gray;
+}
+
+#especial {
+    color:magenta;
+}
+
+th.especial {
+    color:yellow;
+}
+
+th {
+    color:red;
+}
+
+td {
+    color:green;
+}
+
+em:last-child {
+    color:green;
+}
+
+table, th, td {
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+caption {
+    color:aqua;
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+}
