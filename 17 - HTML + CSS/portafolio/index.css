@@ -1,0 +1,113 @@
+/* Barra de navegacion */
+.navbar {
+  padding: 1rem;
+}
+
+.navbar-collapse {
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.img-fluid {
+  height: 5rem;
+}
+
+.nav-link {
+  font-size: 1.25rem;
+}
+
+@media screen and (max-width: 767px) {
+  .navbar-brand {
+    display: none;
+  }
+}
+
+/* Secciones */
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Seccion Hero */
+.hero {
+  background-color: beige;
+  min-width: 450px;
+  text-align: center;
+}
+
+.hero-principal h1 {
+  font-size: 2.5rem;
+  font-family: 'Anek Devanagari', sans-serif;
+}
+
+.hero-principal h2 {
+  font-size: 2rem;
+  font-family: 'Anek Devanagari', sans-serif;
+}
+
+.hero-principal h3 {
+  font-size: 1.5rem;
+  font-family: 'Rubik Distressed', cursive;
+}
+
+.hero-principal {
+  padding: 3rem;
+}
+
+.hero-img {
+  width: 25%;
+  height: 25%;
+  border: 0.2rem solid black;
+}
+
+.hero-languages,
+.hero-databases,
+.hero-frameworks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.hero-languages-img,
+.hero-databases-img,
+.hero-frameworks-img {
+  max-width: 6%;
+}
+
+@media screen and (max-width: 767px) {
+
+  .hero-languages-img,
+  .hero-databases-img,
+  .hero-frameworks-img {
+    max-width:9%;
+  }
+}
+
+/* Sobre mi */
+.texto-claro {
+  color: white;
+}
+
+.sobre-mi {
+  background-color: black;
+  padding: 5%;
+}
+
+.titulo-sobre-mi {
+  font-family: 'Abril Fatface', cursive;
+}
+
+/* Experiencia */
+.experiencia {
+  background-color: beige;
+  padding: 3rem;
+}
+
+.experiencia-titulo {
+  background-color: aqua;
+}
