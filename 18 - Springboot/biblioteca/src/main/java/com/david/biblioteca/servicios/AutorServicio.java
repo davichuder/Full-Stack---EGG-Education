@@ -18,7 +18,7 @@ public class AutorServicio {
     private AutorRepositorio autorRepositorio;
 
     @Autowired
-    ValidacionServicio validacion;
+    private ValidacionServicio validacion;
 
     @Transactional
     public void crearAutor(String nombre) throws ValidacionExcepcion {
@@ -44,5 +44,9 @@ public class AutorServicio {
             autor.setNombre(nombre);
             autorRepositorio.save(autor);
         }
+    }
+
+    public Autor getOne(String id) {
+        return autorRepositorio.getOne(id);
     }
 }

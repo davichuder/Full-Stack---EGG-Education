@@ -18,7 +18,7 @@ public class EditorialServicio {
     private EditorialRepositorio editorialRepositorio;
 
     @Autowired
-    ValidacionServicio validacion;
+    private ValidacionServicio validacion;
 
     @Transactional
     public void crearEditorial(String nombre) throws ValidacionExcepcion {

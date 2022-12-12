@@ -1,7 +1,10 @@
 package com.david.biblioteca.servicios;
 
+import org.springframework.stereotype.Service;
+
 import com.david.biblioteca.excepciones.ValidacionExcepcion;
 
+@Service
 public class ValidacionServicio {
     public void validarNombre(String nombre) throws ValidacionExcepcion {
         if (nombre.isEmpty() || nombre == null) {

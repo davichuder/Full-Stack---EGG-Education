@@ -27,7 +27,7 @@ public class LibroServicio {
     private LibroRepositorio libroRepositorio;
 
     @Autowired
-    ValidacionServicio validacion;
+    private ValidacionServicio validacion;
 
     @Transactional
     public void crearLibro(Long isbn, String titulo, Integer ejemplares, String idAutor, String idEditorial)
