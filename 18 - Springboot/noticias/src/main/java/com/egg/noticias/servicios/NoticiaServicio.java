@@ -38,6 +38,7 @@ public class NoticiaServicio {
         // noticia.setAlta(Calendar.getInstance());
         // noticia.setAlta(LocalDate.now());
         noticiaRepositorio.save(noticia);
+        // getOne("asd").getAlta().getHours()
     }
 
     @Transactional
@@ -66,7 +67,7 @@ public class NoticiaServicio {
 
     public List<Noticia> listarNoticiasFechaDescendente() {
         List<Noticia> noticias = new ArrayList();
-        // noticias = noticiaRepositorio.findAll(Sort.by(Sort.Direction.ASC, "alta"));
+        // noticias = noticiaRepositorio.findAll(Sort.by(Sort.Direction.DESC, "alta"));
         noticias = noticiaRepositorio.todosDescendente();
         return noticias;
     }
