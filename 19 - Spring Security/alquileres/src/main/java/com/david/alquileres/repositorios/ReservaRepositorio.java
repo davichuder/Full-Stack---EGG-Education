@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.david.alquileres.entidades.Reserva;
 
-// @Repository
+@Repository
 public interface ReservaRepositorio extends JpaRepository<Reserva, String> {
 }

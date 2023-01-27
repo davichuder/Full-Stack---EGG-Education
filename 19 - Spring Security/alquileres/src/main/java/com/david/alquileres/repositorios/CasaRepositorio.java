@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.david.alquileres.entidades.Casa;
 
-// @Repository
+@Repository
 public interface CasaRepositorio extends JpaRepository<Casa, String> {
 }

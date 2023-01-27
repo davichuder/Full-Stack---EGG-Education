@@ -14,7 +14,7 @@ import com.david.alquileres.servicios.UsuarioServicio;
 @Configuration
 @EnableWebSecurity
 public class SeguridadWeb {
-    @Autowired(required = false)
+    @Autowired
     public UsuarioServicio usuarioServicio;
 
     @Autowired

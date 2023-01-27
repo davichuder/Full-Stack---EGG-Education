@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.david.alquileres.entidades.Comentario;
 
-// @Repository
+@Repository
 public interface ComentarioRepositorio extends JpaRepository<Comentario, String> {
 }
