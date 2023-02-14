@@ -14,7 +14,7 @@
     <a class="py-2 d-none d-md-inline-block" href="#">Alojamientos</a>
     <a class="py-2 d-none d-md-inline-block" href="#">Ofertas</a>
     <a class="py-2 d-none d-md-inline-block" href="/familias">Familias</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Registrate</a>
+    <a class="py-2 d-none d-md-inline-block" href="#" >Registrate</a>
     <a class="py-2 d-none d-md-inline-block" href="#">Ingresar</a>
   </nav>
 </header>
@@ -31,8 +31,12 @@
           d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
       </svg>
     </a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Nosotros</a>
-    <a class="py-2 d-none d-md-inline-block" href="/familias/registro">Registrate</a>
-    <a class="py-2 d-none d-md-inline-block" href="/familias/ingreso">Ingresar</a>
+    <p th:if="${session.usuariosession != null}" th:text="'Bienvenido ' + ${usuario.alias}" style="color: white;"></p>
+    <a class="py-2 d-none d-md-inline-block" href="#" th:if="${session.usuariosession == null}">Nosotros</a>
+    <a class="py-2 d-none d-md-inline-block" href="/familias/registro" th:if="${session.usuariosession == null}">Registrate</a>
+    <a class="py-2 d-none d-md-inline-block" href="/familias/ingreso" th:if="${session.usuariosession == null}">Ingresar</a>
+    <a class="py-2 d-none d-md-inline-block" href="/familias/formulario_casa" th:if="${session.usuariosession != null}">Agregar casa</a>
+    <a class="py-2 d-none d-md-inline-block" href="/familias/perfil" th:if="${session.usuariosession != null}">Perfil</a>
+    <a class="py-2 d-none d-md-inline-block" href="/familias/logout" th:if="${session.usuariosession != null}">Cerrar sesion</a>
   </nav>
 </header>

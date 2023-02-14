@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+</html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.108.0">
+  <title>Familia</title>
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/product/">
+  <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/style/product.css" rel="stylesheet">
+</head>
+
+<body>
+  <header th:replace="fragments/header :: header_index_familia"></header>
+
+  <main>
+    <div class="container-fluid m-5 contenedor">
+      <form class="formulario" th:action="@{/familias/agregar_casa/__${usuario.id}__}" method="POST" enctype="multipart/form-data">
+        <div class="form-group my-3">
+          <input type="file" class="form-control" name="imagen" placeholder="imagen">
+        </div>
+        <div class="form-group my-3">
+          <input type="text" class="form-control" name="calle" placeholder="calle" th:value="${calle}">
+        </div>
+        <div class="form-group my-3">
+          <input type="number" class="form-control" name="numero" placeholder="numero" th:value="${numero}">
+        </div>
+        <div class="form-group my-3">
+          <input type="text" class="form-control" name="codPostal" placeholder="codPostal" th:value="${codPostal}">
+        </div>
+        <div class="form-group my-3">
+          <input type="text" class="form-control" name="ciudad" placeholder="ciudad" th:value="${ciudad}">
+        </div>
+        <div class="form-group my-3">
+          <input type="text" class="form-control" name="pais" placeholder="pais" th:value="${pais}">
+        </div>
+        <div class="form-group my-3">
+          fechaDesde
+          <input type="date" class="form-control" name="fechaDesde" placeholder="fechaDesde" th:value="${fechaDesde}">
+        </div>
+        <div class="form-group my-3">
+          fechaHasta
+          <input type="date" class="form-control" name="fechaHasta" placeholder="fechaHasta" th:value="${fechaHasta}">
+        </div>
+        <div class="form-group my-3">
+          <input type="number" class="form-control" name="minDias" placeholder="minDias" th:value="${minDias}">
+        </div>
+        <div class="form-group my-3">
+          <input type="number" class="form-control" name="maxDias" placeholder="maxDias" th:value="${maxDias}">
+        </div>
+        <div class="form-group my-3">
+          <input type="number" class="form-control" name="precio" placeholder="precio" th:value="${precio}">
+        </div>
+        <div class="form-group my-3">
+          <input type="text" class="form-control" name="tipoVivienda" placeholder="tipoVivienda"
+            th:value="${tipoVivienda}">
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3 botones">Agregar casa</button>
+      </form>
+    </div>
+    <form>
+    </form>
+  </main>
+
+  <footer th:replace="fragments/footer :: footer_general"></footer>
+
+  <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
